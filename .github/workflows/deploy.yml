@@ -1,0 +1,35 @@
+name: Deploy angular app to github page
+
+on:
+    push:
+        branches: ["main"]
+        
+jobs:
+    deploy:
+        run-on: ubuntu-latest
+            
+            
+        steps:
+            - name: Checkout code_repository
+              uses: action/Checkout@v4
+              
+            - name: Setup Node.Js
+              uses: action/setup-node@v4
+              with: 
+                node-version: 18
+                
+            - name: Install dependencies
+              run: npm ci
+              
+            - name: Build Project
+              run: npm run build -- --configuration production
+             
+            - name: Deploy to GitHub pages
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                branch: main
+                folder: dist/angularpoc
+             
+                
+    
+            
