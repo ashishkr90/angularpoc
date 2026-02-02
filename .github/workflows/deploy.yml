@@ -22,13 +22,13 @@ jobs:
               run: npm ci
               
             - name: Build Project
-              run: npm run build:gh || npm run build -- --base-href /angularpoc/
+              run: npm run build:gh || npm run build -- --base-href /AngularPoc/
              
             - name: Deploy to GitHub pages
               uses: JamesIves/github-pages-deploy-action@v4
               with:
                 branch: main
-                folder: dist/angularpoc
+                folder: dist/AngularPoc
              
                 
     
