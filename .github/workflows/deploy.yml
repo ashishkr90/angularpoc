@@ -30,8 +30,9 @@ jobs:
             - name: Deploy to GitHub pages
               uses: peaceiris/actions-gh-pages@v4
               with:
-                branch: gh-pages
-                folder: ./dist/angularpoc
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_branch: gh-pages
+                publish_dir: dist/angularpoc
              
                 
     
