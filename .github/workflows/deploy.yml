@@ -1,0 +1,39 @@
+name: Deploy angular app to github page
+
+on:
+    push:
+        branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+            
+            
+        steps:
+            - name: Checkout code_repository
+              uses: actions/Checkout@v4
+              
+            - name: Setup Node.Js
+              uses: actions/setup-node@v4
+              with: 
+                node-version: 22.12
+                
+            - name: Install dependencies
+              run: npm ci
+              
+            - name: Build Project
+              run: npm run build:gh || npm run build -- --base-href /angularpoc/
+             
+            - name: Deploy to GitHub pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_branch: gh-pages
+                publish_dir: dist/angularpoc
+             
+                
+    
+            
