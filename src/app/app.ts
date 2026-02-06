@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('AngularPOC');
+  protected readonly title = signal('AngularPOC GIT HUB Page CI CD');
    userInput: string = '';
   recognition: any;
   isListening: boolean = false;
