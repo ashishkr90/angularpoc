@@ -28,7 +28,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                 branch: gh-pages
-                folder: dist/angularpoc
+                folder: ./dist/angularpoc
              
                 
     
